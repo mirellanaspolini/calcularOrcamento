@@ -1,0 +1,30 @@
+label {
+    display: inline-block;
+    margin: 0 8px 16px 0;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: rgb(255, 238, 242);
+}
+
+input,
+select {
+    background-color: #ffffff;
+    border: solid 2px #f1f1f1;
+    padding: .5rem .8rem;
+    border-radius: 8px;
+}
+
+h3,
+h2 {
+    color: rgb(192, 84, 84);
+}
+
+
+h1 {
+    color: rgb(212, 27, 89);
+}

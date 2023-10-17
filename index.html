@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Calculadora de Novelos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h2>Calcule o orçamento:</h2>
+    <label for="quantHoras">Quantidade de horas estimado: </label>
+    <input type="number" id="quantHoras" placeholder="0">
+    <br>
+    <label for="quantEnchimento">Enchimento (g):</label>
+    <input type="number" id="quantEnchimento" placeholder="0">
+    <br>
+    <label for="quantAgulhas">Quantidade de agulhas necessárias: </label>
+    <input type="number" id="quantAgulhas" placeholder="0">
+
+    <h3>Tamanho final do amigurumi:</h3>
+
+    <label for="alturaFinal">Altura (cm):</label>
+    <input type="number" id="alturaFinal" placeholder="0">
+    
+    <br>
+    
+    <label for="larguraFinal">Largura (cm):</label>
+    <input type="number" id="larguraFinal" placeholder="0">
+
+
+    <br>
+    <p>É chaveiro?</p>
+    <input type="checkbox" name="chaveiro" value="chaveiro" id="chaveiro">
+    <label for="chaveiro">sim</label>
+
+    <br>
+    <strong>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~</strong>
+
+    <h2>Calculadora de Novelos</h2>
+
+    <label>Selecione a linha:</label>
+    <select onchange="teste()" name="selectLinha" id="selectLinha">
+        <option value="" selected disabled>Selecione a linha</option>
+        <option value="balloonAmigo">Balloon Amigo</option>
+        <option value="amigurumiPelucia">Amigurumi Pélucia</option>
+    </select>
+
+    <p id="resultado"></p>
+
+    <h1 id="total">Total: R$ <span>0</span></h1>
+
+    <script src="./script.js"></script>
+</body>
+</html>
+
