@@ -49,7 +49,6 @@ function App() {
                 id="quantHoras"
                 onChange={({ target }) => setValorTotalHoras(target.value * 8)}
             />
-            {valorTotalHoras}
             <br />
             <label htmlFor="quantEnchimento">Enchimento (g):</label>
             <input
@@ -68,11 +67,7 @@ function App() {
                 type="number"
                 id="quantAgulhas"
             />
-            {valorTotalAgulhas}
-
             <br />
-
-            <p></p>
             <input
                 type="checkbox"
                 value="txtChaveiro"

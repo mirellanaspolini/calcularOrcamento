@@ -95,7 +95,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                     <option value="amigurumiPelucia">Amigurumi Pélucia</option>
                 </select>
                 <button id="btnSubmit" type="submit">
-                    aa
+                    Calcular
                 </button>
             </form>
 

@@ -32,7 +32,7 @@ h2 {
 }
 
 h2 {
-  color: #e6a223;
+    color: #e6a223;
 }
 
 main {
@@ -51,9 +51,20 @@ h1 {
 }
 
 h1:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 h1:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
+}
+
+#btnSubmit {
+    border: 2px solid #ecb2bf;
+    background-color: #f3cfd7;
+    color: #963c3c;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
 }

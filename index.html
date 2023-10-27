@@ -1,76 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
     <head>
-        <title>Calculadora de Novelos</title>
-        <link rel="stylesheet" href="estilo.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora de Orçamentos - Pingurumis</title>
     </head>
     <body>
-        <main>
-            <h3>Calcule o orçamento:</h3>
-            <label for="quantHoras">Quantidade de horas estimado: </label>
-            <input type="number" id="quantHoras" placeholder="0" />
-            <br />
-            <label for="quantEnchimento">Enchimento (g):</label>
-            <input type="number" id="quantEnchimento" placeholder="0" />
-            <br />
-            <label for="quantAgulhas"
-                >Quantidade de agulhas necessárias:
-            </label>
-            <input type="number" id="quantAgulhas" placeholder="0" />
-
-            <h3>Tamanho final do amigurumi:</h3>
-
-            <label for="alturaFinal">Altura (cm):</label>
-            <input type="number" id="alturaFinal" placeholder="0" />
-
-            <br />
-
-            <label for="larguraFinal">Largura (cm):</label>
-            <input type="number" id="larguraFinal" placeholder="0" />
-
-            <br />
-
-            <h3>Calculadora de Novelos</h3>
-
-            <label>Selecione a linha:</label>
-            <select onchange="teste()" name="selectLinha" id="selectLinha">
-                <option value="" selected disabled>Selecione a linha</option>
-                <option value="balloonAmigo">Balloon Amigo</option>
-                <option value="amigurumiPelucia">Amigurumi Pélucia</option>
-            </select>
-
-            <p id="resultado"></p>
-
-            <p></p>
-            <input
-                type="checkbox"
-                name="txtChaveiro"
-                value="txtChaveiro"
-                id="txtChaveiro"
-				data-preco="5"
-            />
-            <label for="txtChaveiro">Chaveiro</label>
-
-            <input
-                type="checkbox"
-                name="txtFeltro"
-                value="txtFeltro"
-                id="txtFeltro"
-				data-preco="2.8"
-            />
-            <label for="txtFeltro">Feltro</label>
-
-			<input
-                type="checkbox"
-                name="txtOlhinhos"
-                value="txtOlhinhos"
-                id="txtOlhinhos"
-				data-preco="0.20"
-            />
-            <label for="txtOlhinhos">Olhinhos</label>
-
-            <h2 id="total">Total: R$ <span>0</span></h2>
-        </main>
-
-        <script src="./script.js"></script>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
     </body>
 </html>
