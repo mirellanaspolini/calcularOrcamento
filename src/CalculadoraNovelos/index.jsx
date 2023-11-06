@@ -26,6 +26,15 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                 pesoNovelo: 85,
                 valorNovelo: 10.4,
             });
+        } else if (linha === "amigurumiPeluciaDuplo") {
+            setAmostra({
+                amostraFioLargura: 10,
+                amostraFioAltura: 5,
+                amostraPeso: 8,
+                pesoNovelo: 85,
+                valorNovelo: 10.4,
+                // carreiras 5, 12 pontos
+            });
         }
     }, [linha]);
 
@@ -46,60 +55,65 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                 ? numeroNovelosNecessario * amostra.valorNovelo * 3
                 : numeroNovelosNecessario * amostra.valorNovelo
         );
+
+        console.log("valor:: ",valorTotalNovelo.valorTotalNovelo);
+        console.log("numero novelos:: ", Math.ceil(numeroNovelosNecessario));
     };
 
     return (
         <div>
-            <h2>Calculadora de Novelos: </h2>
+            <h2>Calculadora de Novelos</h2>
 
             <form action="" onSubmit={handleSubmit}>
-                <h3>Tamanho final do amigurumi:</h3>
+                <div className="gridTamanho">
+                    <fieldset>
+                        <label htmlFor="alturaFinal">Altura:</label>
+                        <input
+                            type="number"
+                            id="alturaFinal"
+                            onChange={({ target }) => {
+                                setTamanhoPecaFinal((anterior) => ({
+                                    ...anterior,
+                                    alturaFinal: target.value,
+                                }));
+                            }}
+                        />                
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="larguraFinal">Largura:</label>
+                        <input
+                            type="number"
+                            id="larguraFinal"
+                            onChange={({ target }) => {
+                                setTamanhoPecaFinal((anterior) => ({
+                                    ...anterior,
+                                    larguraFinal: target.value,
+                                }));
+                            }}
+                        />
 
-                <label htmlFor="alturaFinal">Altura (cm):</label>
-                <input
-                    type="number"
-                    id="alturaFinal"
-                    onChange={({ target }) => {
-                        setTamanhoPecaFinal((anterior) => ({
-                            ...anterior,
-                            alturaFinal: target.value,
-                        }));
-                    }}
-                />
-                <br />
-                <label htmlFor="larguraFinal">Largura (cm):</label>
-                <input
-                    type="number"
-                    id="larguraFinal"
-                    onChange={({ target }) => {
-                        setTamanhoPecaFinal((anterior) => ({
-                            ...anterior,
-                            larguraFinal: target.value,
-                        }));
-                    }}
-                />
-
-                <h3>Qual linha irá usar? </h3>
-                <label htmlFor="selectLinha">Escolha uma opção:</label>
-                <select
-                    id="selectLinha"
-                    onChange={({ target }) => {
-                        setLinha(target.value);
-                        document.getElementById("btnSubmit").click();
-                    }}
-                >
-                    <option value="" defaultValue disabled>
-                        Selecione
-                    </option>
-                    <option value="balloonAmigo">Balloon Amigo</option>
-                    <option value="amigurumiPelucia">Amigurumi Pélucia</option>
-                </select>
+                    </fieldset>
+                </div>
+                <fieldset>
+                    <label>Escolha a linha:</label>
+                    <select
+                        id="selectLinha"
+                        onChange={({ target }) => {
+                            setLinha(target.value);
+                        }}
+                        >
+                        <option selected disabled>
+                            Selecione
+                        </option>
+                        <option value="balloonAmigo">Balloon Amigo</option>
+                        <option value="amigurumiPelucia">Amigurumi Pelúcia</option>
+                        <option value="amigurumiPeluciaDuplo">Amigurumi Pelúcia Duplo</option>
+                    </select>
+                </fieldset>
                 <button id="btnSubmit" type="submit">
                     Calcular
                 </button>
             </form>
-
-            <p>Você irá precisar de {numeroNovelosNecessario}</p>
         </div>
     );
 };

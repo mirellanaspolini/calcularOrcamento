@@ -40,66 +40,69 @@ function App() {
 
     return (
         <main>
-            <h1>Calculadora de Orçamentos</h1>
+            <h2>Calculadora de Orçamentos</h2>
+            <fieldset>
+                <label htmlFor="quantHoras">Quant. de horas: </label>
+                <input
+                    type="number"
+                    id="quantHoras"
+                    onChange={({ target }) => setValorTotalHoras(target.value * 8)}
+                />
+            </fieldset>
+            <fieldset>
+                <label htmlFor="quantEnchimento">Enchimento (g):</label>
+                <input
+                    type="number"
+                    id="quantEnchimento"
+                    onChange={({ target }) => setValorEnchimento(target.value / 10)}
+                />
+            </fieldset>
+            <fieldset>
+                <label htmlFor="quantAgulhas">
+                    Quant. agulhas:
+                </label>
+                <input
+                    onChange={({ target }) =>
+                        setValorTotalAgulhas(target.value * 3.7)
+                    }
+                    type="number"
+                    id="quantAgulhas"
+                />
+            </fieldset>
+            <div>
+                <input
+                    type="checkbox"
+                    value="txtChaveiro"
+                    id="txtChaveiro"
+                    data-preco="5"
+                    onChange={calculaValorAdicional}
+                />
+                <label htmlFor="txtChaveiro">Chaveiro</label>
+                <input
+                    type="checkbox"
+                    value="txtFeltro"
+                    id="txtFeltro"
+                    data-preco="5"
+                    onChange={calculaValorAdicional}
+                />
+                <label htmlFor="txtFeltro">Feltro</label>
+                <input
+                    type="checkbox"
+                    value="txtOlhinhos"
+                    id="txtOlhinhos"
+                    data-preco="0.20"
+                    onChange={calculaValorAdicional}
+                />
+                <label htmlFor="txtOlhinhos">Olhinhos</label>
+            </div>            
 
-            <h2>Calcule o orçamento:</h2>
-            <label htmlFor="quantHoras">Quantidade de horas estimado: </label>
-            <input
-                type="number"
-                id="quantHoras"
-                onChange={({ target }) => setValorTotalHoras(target.value * 8)}
-            />
-            <br />
-            <label htmlFor="quantEnchimento">Enchimento (g):</label>
-            <input
-                type="number"
-                id="quantEnchimento"
-                onChange={({ target }) => setValorEnchimento(target.value / 10)}
-            />
-            <br />
-            <label htmlFor="quantAgulhas">
-                Quantidade de agulhas necessárias:
-            </label>
-            <input
-                onChange={({ target }) =>
-                    setValorTotalAgulhas(target.value * 3.7)
-                }
-                type="number"
-                id="quantAgulhas"
-            />
-            <br />
-            <input
-                type="checkbox"
-                value="txtChaveiro"
-                id="txtChaveiro"
-                data-preco="5"
-                onChange={calculaValorAdicional}
-            />
-            <label htmlFor="txtChaveiro">Chaveiro</label>
-
-            <input
-                type="checkbox"
-                value="txtFeltro"
-                id="txtFeltro"
-                data-preco="5"
-                onChange={calculaValorAdicional}
-            />
-            <label htmlFor="txtFeltro">Feltro</label>
-
-            <input
-                type="checkbox"
-                value="txtOlhinhos"
-                id="txtOlhinhos"
-                data-preco="0.20"
-                onChange={calculaValorAdicional}
-            />
-            <label htmlFor="txtOlhinhos">Olhinhos</label>
+            <hr />
 
             <CalculadoraNovelos
                 valorTotalNovelo={{ valorTotalNovelo, setTotalValorNovelo }}
             />
             <hr />
-            <h1>Total: R$ {valorTotal.toFixed(2)}</h1>
+            <h2>Total: R$ {isNaN(valorTotal) ? '0.00' : valorTotal.toFixed(2)}</h2>
         </main>
     );
 }

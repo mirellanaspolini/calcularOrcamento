@@ -1,10 +1,7 @@
-label {
-    display: inline-block;
-    margin: 0 8px 16px 0;
-}
-
 * {
     font-family: sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -12,6 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ffeef2;
+    min-height: 100vh;
 }
 
 input,
@@ -20,45 +18,41 @@ select {
     border: solid 2px #f8e3e3;
     padding: 0.5rem 0.8rem;
     border-radius: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
 }
 
-h1 {
+label,
+p {
+    font-weight: 600;
+    color: #726363;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+h2 {
     text-align: center;
+    margin: 16px;
+    color: #d6a344;
+    font-family: "Hynings Handwriting V2", sans-serif;
+
 }
 
-h3,
-h2 {
-    color: #c05454;
-}
-
-h2 {
-    color: #e6a223;
+fieldset {
+    border: none;
 }
 
 main {
     margin: auto;
     background-color: #fff;
-    padding: 40px 64px;
+    padding: 40px 52px;
     border-radius: 20px;
     box-shadow: 3px 3px 10px 3px #f3cfd7;
-}
-
-h1 {
-    color: #d41b59;
-    text-align: center;
-    width: 100%;
-    margin: 24px;
-}
-
-h1:first-child {
-    margin-top: 0;
-}
-
-h1:last-child {
-    margin-bottom: 0;
+    max-width: 400px;
 }
 
 #btnSubmit {
+    width: 100%;
     border: 2px solid #ecb2bf;
     background-color: #f3cfd7;
     color: #963c3c;
@@ -67,4 +61,29 @@ h1:last-child {
     cursor: pointer;
     display: block;
     font-weight: bold;
+    margin-top: 16px;
+}
+
+.gridTamanho {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.gridTamanho label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.gridTamanho input {
+    display: block;
+}
+
+hr {
+    color: pink;
+    margin: 16px 0;
+}
+
+input[type='checkbox'] {
+    margin-right: 4px;
 }
