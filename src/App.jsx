@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import CalculadoraNovelos from "./CalculadoraNovelos";
+import CampoTexto from "./CampoTexto";
 
 function App() {
     const [valorTotal, setValorTotal] = useState(0);
@@ -22,6 +23,7 @@ function App() {
         const totalComLucro = somaTotal + somaTotal * 0.2;
         setValorTotal(totalComLucro);
     };
+
     useEffect(() => {
         calculaTotalComLucro();
     }, [
@@ -41,38 +43,26 @@ function App() {
     return (
         <main>
             <h2>Calculadora de Orçamentos</h2>
-            <fieldset>
-                <label htmlFor="quantHoras">Quant. de horas: </label>
-                <input
-                    type="number"
-                    id="quantHoras"
-                    onChange={({ target }) => setValorTotalHoras(target.value * 8)}
-                />
-            </fieldset>
-            <fieldset>
-                <label htmlFor="quantEnchimento">Enchimento (g):</label>
-                <input
-                    type="number"
-                    id="quantEnchimento"
-                    onChange={({ target }) => setValorEnchimento(target.value / 10)}
-                />
-            </fieldset>
-            <fieldset>
-                <label htmlFor="quantAgulhas">
-                    Quant. agulhas:
-                </label>
-                <input
-                    onChange={({ target }) =>
-                        setValorTotalAgulhas(target.value * 3.7)
-                    }
-                    type="number"
-                    id="quantAgulhas"
-                />
-            </fieldset>
+            <CampoTexto
+                id="quantHoras"
+                label="Quant. de horas"
+                onChange={({ target }) => setValorTotalHoras(target.value * 8)}
+            />
+            <CampoTexto
+                id="quantEnchimento"
+                label="Enchimento (g)"
+                onChange={({ target }) => setValorEnchimento(target.value / 10)}
+            />
+            <CampoTexto
+                id="quantAgulhas"
+                label="Quant. agulhas"
+                onChange={({ target }) =>
+                    setValorTotalAgulhas(target.value * 3.7)
+                }
+            />
             <div>
                 <input
                     type="checkbox"
-                    value="txtChaveiro"
                     id="txtChaveiro"
                     data-preco="5"
                     onChange={calculaValorAdicional}
@@ -80,7 +70,6 @@ function App() {
                 <label htmlFor="txtChaveiro">Chaveiro</label>
                 <input
                     type="checkbox"
-                    value="txtFeltro"
                     id="txtFeltro"
                     data-preco="5"
                     onChange={calculaValorAdicional}
@@ -88,13 +77,12 @@ function App() {
                 <label htmlFor="txtFeltro">Feltro</label>
                 <input
                     type="checkbox"
-                    value="txtOlhinhos"
                     id="txtOlhinhos"
-                    data-preco="0.20"
+                    data-preco="0.40"
                     onChange={calculaValorAdicional}
                 />
                 <label htmlFor="txtOlhinhos">Olhinhos</label>
-            </div>            
+            </div>
 
             <hr />
 
@@ -102,7 +90,10 @@ function App() {
                 valorTotalNovelo={{ valorTotalNovelo, setTotalValorNovelo }}
             />
             <hr />
-            <h2>Total: R$ {isNaN(valorTotal) ? '0.00' : valorTotal.toFixed(2)}</h2>
+            <h2>
+                Total: R${" "}
+                {isNaN(valorTotal) ? "0.00" : Math.ceil(valorTotal.toFixed(2))}
+            </h2>
         </main>
     );
 }
