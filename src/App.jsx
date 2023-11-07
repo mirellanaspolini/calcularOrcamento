@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import CalculadoraNovelos from "./CalculadoraNovelos";
-import CampoTexto from "./CampoTexto";
+import CalculadoraNovelos from "./componentes/CalculadoraNovelos";
+import CampoTexto from "./componentes/CampoTexto";
 
-function App() {
+const App = () => {
     const [valorTotal, setValorTotal] = useState(0);
     const [valorTotalHoras, setValorTotalHoras] = useState(0);
     const [valorTotalAgulhas, setValorTotalAgulhas] = useState(0);
@@ -44,17 +44,17 @@ function App() {
         <main>
             <h2>Calculadora de Orçamentos</h2>
             <CampoTexto
-                id="quantHoras"
+                id="txtQuantHoras"
                 label="Quant. de horas"
                 onChange={({ target }) => setValorTotalHoras(target.value * 8)}
             />
             <CampoTexto
-                id="quantEnchimento"
+                id="txtQuantEnchimento"
                 label="Enchimento (g)"
                 onChange={({ target }) => setValorEnchimento(target.value / 10)}
             />
             <CampoTexto
-                id="quantAgulhas"
+                id="txtQuantAgulhas"
                 label="Quant. agulhas"
                 onChange={({ target }) =>
                     setValorTotalAgulhas(target.value * 3.7)
@@ -96,6 +96,6 @@ function App() {
             </h2>
         </main>
     );
-}
+};
 
 export default App;

@@ -1,0 +1,30 @@
+.modalBackgroundBlur {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(4px);
+}
+
+.modalWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal {
+    background-color: white;
+    box-shadow: 3px 3px 10px 3px #f3cfd7;
+    padding: 32px;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+h3 {
+    color: #b03e3e;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
