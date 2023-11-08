@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import CampoTexto from "../CampoTexto";
 import "./index.css";
 
-const Modal = ({ isOpen, lista }) => {
-    const display = { display: isOpen ? "block" : "none" };
+const Modal = ({ situacao, lista }) => {
+    const display = { display: situacao.isOpen ? "block" : "none" };
 
     const [linha, setLinha] = useState("");
     const [amostra, setAmostra] = useState({
@@ -16,24 +16,32 @@ const Modal = ({ isOpen, lista }) => {
         pesoNovelo: 0,
         valorNovelo: 0,
     });
+    const [erro, setErro] = useState("");
 
-    const teste = {
-        // linha: "Amigurumi Soft",
-        // palavraChave: "amigurumiSoft",
-        // amostra: {
-        //     largura: 10,
-        //     altura: 5,
-        //     peso: 4,
-        // },
-        // noveloInfo: {
-        //     pesoNovelo: 65,
-        //     valorNovelo: 10.36,
-        // },
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        situacao.setIsOpen(false);
     };
 
-    const handleClick = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setErro(null);
+
+        if (
+            linha == "" ||
+            amostra.altura == "" ||
+            amostra.largura == "" ||
+            amostra.peso == "" ||
+            noveloInfo.pesoNovelo == "" ||
+            noveloInfo.valorNovelo == ""
+        ) {
+            setErro("Preencha todos os campos");
+            return;
+        }
+
         const jaExiste = lista.listaLinhas.find(
-            (lista) => lista.linha === teste.linha
+            (lista) => lista.linha === linha
         );
         if (!jaExiste) {
             lista.setListaLinhas([
@@ -70,6 +78,7 @@ const Modal = ({ isOpen, lista }) => {
                                     pesoNovelo: target.value,
                                 }))
                             }
+                            tipo="number"
                         />
 
                         <CampoTexto
@@ -81,6 +90,7 @@ const Modal = ({ isOpen, lista }) => {
                                     valorNovelo: target.value,
                                 }))
                             }
+                            tipo="number"
                         />
                         <h3>Amostra: </h3>
                         <CampoTexto
@@ -92,6 +102,7 @@ const Modal = ({ isOpen, lista }) => {
                                     altura: target.value,
                                 }))
                             }
+                            tipo="number"
                         />
                         <CampoTexto
                             id="txtLargura"
@@ -102,6 +113,7 @@ const Modal = ({ isOpen, lista }) => {
                                     largura: target.value,
                                 }))
                             }
+                            tipo="number"
                         />
                         <CampoTexto
                             id="txtPeso"
@@ -112,21 +124,22 @@ const Modal = ({ isOpen, lista }) => {
                                     peso: target.value,
                                 }))
                             }
+                            tipo="number"
                         />
                     </div>
-
-                    <span style={{ display: "flex", gap: "16px" }}>
+                    <span style={{ color: "#db4444" }}>{erro}</span>
+                    <span style={{ display: "flex", gap: "2px" }}>
                         <button
-                            id="btnSubmit"
+                            className="btnFull btnPrimario"
                             type="submit"
-                            onClick={handleClick}
+                            onClick={handleSubmit}
                         >
                             Cadastrar
                         </button>
                         <button
-                            id="btnSubmit"
+                            className="btnFull btnSecundario"
                             style={{ backgroundColor: "white" }}
-                            // onClick={fechaModal}
+                            onClick={handleClick}
                         >
                             Fechar
                         </button>

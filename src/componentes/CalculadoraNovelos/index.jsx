@@ -76,8 +76,6 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
         ? JSON.parse(linhasArmazenadasLS)
         : listaLinhasInicial;
 
-    console.log(linhasIniciais);
-
     const [listaLinhas, setListaLinhas] = useState(linhasIniciais);
 
     useEffect(() => {
@@ -144,6 +142,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                                 largura: target.value,
                             }))
                         }
+                        tipo="number"
                     />
                 </div>
                 <fieldset>
@@ -164,19 +163,19 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                     </select>
                     <button
                         type="button"
-                        className="btnSecundario"
+                        className="btn btnIcone btnSecundario"
                         title="Cadastrar uma linha"
                         onClick={abreModal}
                     >
                         +
                     </button>
                 </fieldset>
-                <button id="btnSubmit" type="submit" onClick={handleSubmit}>
+                <button className="btnFull btnPrimario" type="submit" onClick={handleSubmit}>
                     Calcular
                 </button>
                 <p ref={printaQuantNovelo}>e</p>
             </form>
-            <Modal isOpen={isOpen} lista={{ listaLinhas, setListaLinhas }} />
+            <Modal situacao={{isOpen, setIsOpen}} lista={{ listaLinhas, setListaLinhas }} />
         </div>
     );
 };

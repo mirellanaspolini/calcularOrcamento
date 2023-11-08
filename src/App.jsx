@@ -47,11 +47,13 @@ const App = () => {
                 id="txtQuantHoras"
                 label="Quant. de horas"
                 onChange={({ target }) => setValorTotalHoras(target.value * 8)}
+                tipo="number"
             />
             <CampoTexto
                 id="txtQuantEnchimento"
                 label="Enchimento (g)"
                 onChange={({ target }) => setValorEnchimento(target.value / 10)}
+                tipo="number"
             />
             <CampoTexto
                 id="txtQuantAgulhas"
@@ -59,6 +61,7 @@ const App = () => {
                 onChange={({ target }) =>
                     setValorTotalAgulhas(target.value * 3.7)
                 }
+                tipo="number"
             />
             <div>
                 <input

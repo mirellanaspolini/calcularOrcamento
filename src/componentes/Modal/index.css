@@ -1,3 +1,9 @@
+h3 {
+    color: #b03e3e;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
 .modalBackgroundBlur {
     position: absolute;
     width: 100vw;
@@ -21,10 +27,4 @@
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
-}
-
-h3 {
-    color: #b03e3e;
-    margin-bottom: 8px;
-    margin-top: 16px;
 }

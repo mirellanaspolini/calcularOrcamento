@@ -34,6 +34,10 @@ h2 {
     text-align: center;
     margin: 16px;
     color: #d6a344;
+}
+
+h2,
+h3 {
     font-family: "Hynings Handwriting V2", sans-serif;
 }
 
@@ -58,25 +62,40 @@ button {
     margin: 4px 0 4px;
 }
 
-#btnSubmit {
-    display: block;
+.btn {
+    border: 2px solid transparent;
+}
+
+.btnFull {
+    border: 2px solid transparent;
     width: 100%;
-    border: 2px solid #e291a3;
-    background-color: #f3cfd7;
-    color: #b03e3e;
+}
+
+.btnPrimario {
+    background-color: #cc8c39;
+    color: #fff;
+}
+
+.btnPrimario:hover {
+    background-color: #b66b2d;
+}
+
+.btnIcone {
+    padding: 4px 10px;
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 .btnSecundario {
-    display: inline;
-    border: 2px solid #f07993;
-    background-color: #fdedf0;
-    color: #f07993;
+    border-color: #cc8c39;
+    background-color: #fff;
+    color: #cc8c39;
     margin-bottom: 8px;
-    padding: 0px 6px;
-    font-size: 20px;
-    border-radius: 100%;
-    vertical-align: middle;
     margin-left: 4px;
+}
+
+.btnSecundario:hover {
+    background-color: #fffadb;
 }
 
 .gridTamanho {
