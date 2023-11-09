@@ -145,7 +145,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                         tipo="number"
                     />
                 </div>
-                <fieldset>
+                <fieldset className="slctLinha">
                     <label htmlFor="selectLinha">Escolha a linha:</label>
                     <select
                         id="selectLinha"

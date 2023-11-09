@@ -63,7 +63,7 @@ const App = () => {
                 }
                 tipo="number"
             />
-            <div>
+            <div className="checkbox-wrapper">
                 <input
                     type="checkbox"
                     id="txtChaveiro"
