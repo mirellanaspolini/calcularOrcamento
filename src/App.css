@@ -53,6 +53,7 @@ fieldset {
     border: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 4px;
 }
 
@@ -117,6 +118,7 @@ button {
 
 .gridTamanho fieldset {
     display: flex;
+    align-items: initial;
     flex-direction: column;
     gap: 2px;
 }
@@ -144,8 +146,5 @@ button {
     }
     h2 {
         font-size: 20px;
-    }
-    .slctLinha select {
-        width: 100%;
     }
 }
