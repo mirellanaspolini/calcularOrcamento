@@ -20,7 +20,7 @@ const App = () => {
             valorEnchimento +
             valorAdicional +
             valorTotalNovelo;
-        const totalComLucro = somaTotal + somaTotal * 0.2;
+        const totalComLucro = somaTotal + somaTotal * 0.35;
         setValorTotal(totalComLucro);
     };
 
