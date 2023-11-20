@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CampoTexto from "../CampoTexto";
 import Modal from "../Modal";
+import MensagemErro from "../MensagemErro";
 
 const CalculadoraNovelos = ({ valorTotalNovelo }) => {
     const [amostra, setAmostra] = useState({});
@@ -10,6 +11,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
         altura: 0,
         largura: 0,
     });
+    const [erro, setErro] = useState("");
     let numeroNovelosNecessario = 0;
     const printaQuantNovelo = useRef();
 
@@ -93,6 +95,8 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErro("");
+        if (!validaValores()) return;
 
         let areaAmostra = amostra.altura * amostra.largura;
         let areaPecaFinal = tamanhoPecaFinal.altura * tamanhoPecaFinal.largura;
@@ -114,6 +118,18 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
 
     const abreModal = () => {
         setIsOpen(!isOpen);
+    };
+
+    const validaValores = () => {
+        if (
+            tamanhoPecaFinal.largura == "" ||
+            tamanhoPecaFinal.altura == "" ||
+            novelo.pesoNovelo == ""
+        ) {
+            setErro("Preencha todos os campos");
+            return false;
+        }
+        return true;
     };
 
     return (
@@ -170,12 +186,20 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                         +
                     </button>
                 </fieldset>
-                <button className="btnFull btnPrimario" type="submit" onClick={handleSubmit}>
+                <MensagemErro erro={erro} />
+                <button
+                    className="btnFull btnPrimario"
+                    type="submit"
+                    onClick={handleSubmit}
+                >
                     Calcular
                 </button>
-                <p ref={printaQuantNovelo}>e</p>
+                <p ref={printaQuantNovelo}></p>
             </form>
-            <Modal situacao={{isOpen, setIsOpen}} lista={{ listaLinhas, setListaLinhas }} />
+            <Modal
+                taAberto={{ isOpen, setIsOpen }}
+                lista={{ listaLinhas, setListaLinhas }}
+            />
         </div>
     );
 };
