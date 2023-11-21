@@ -10,6 +10,8 @@ const App = () => {
     const [valorEnchimento, setValorEnchimento] = useState(0);
     const [valorAdicional, setValorAdicional] = useState(0);
     const [valorTotalNovelo, setTotalValorNovelo] = useState(0);
+    const [desconto, setDesconto] = useState(6);
+    const [percDesconto, setPercDesconto] = useState(6);
     const valoresFixos = 7;
 
     const calculaTotalComLucro = () => {
@@ -93,6 +95,12 @@ const App = () => {
                 valorTotalNovelo={{ valorTotalNovelo, setTotalValorNovelo }}
             />
             <hr />
+
+            <CampoTexto
+                id="txtDesconto"
+                label="Adicionar porcentagem de desconto"
+                tipo="number"
+            />
             <h2>
                 Total: R${" "}
                 {isNaN(valorTotal) ? "0.00" : Math.ceil(valorTotal.toFixed(2))}

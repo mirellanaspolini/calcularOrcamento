@@ -57,7 +57,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
             ]);
             setFeedback(`O fio "${linha}" foi cadastrado!`);
         }
-        return handleSubmit;
+        return;
     };
 
     const handleClick = (e) => {
@@ -66,13 +66,13 @@ const ModalConteudo = ({ lista, taAberto }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <div>
                 <h2>Cadastre uma nova linha</h2>
                 <h3>Novelo: </h3>
                 <CampoTexto
                     id="txtLinha"
-                    label="Nome"
+                    label="Linha"
                     onChange={({ target }) => setLinha(target.value)}
                 />
                 <CampoTexto
