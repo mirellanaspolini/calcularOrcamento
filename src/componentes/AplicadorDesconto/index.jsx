@@ -9,18 +9,20 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
     const calculaDesconto = () => {
         const valorDesconto = valorTotal * (percDesconto / 100);
         const valorTotalComDesconto = valorTotal - valorDesconto;
+        
         setDesconto(valorDesconto);
         setValorTotal(valorTotalComDesconto);
     };
     const descontaDesconto = () => {
         const valorTotalSemDesconto = valorTotal + desconto;
+
         setDesconto(0);
         setPercDesconto(0);
         setValorTotal(valorTotalSemDesconto);
     };
 
     return (
-        <span className="campoDesconto">
+        <div className="campoDesconto">
             <CampoTexto
                 id="txtDesconto"
                 label="Adicionar desconto (%)"
@@ -45,7 +47,7 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
                     Remover
                 </button>
             )}
-        </span>
+        </div>
     );
 };
 

@@ -38,7 +38,7 @@ const App = () => {
 
     return (
         <main>
-            <h2>Calculadora de Orçamentos</h2>
+            <h3>Calculadora de Orçamentos</h3>
             <CampoTexto
                 id="txtQuantHoras"
                 label="Quant. de horas"
@@ -64,19 +64,17 @@ const App = () => {
                 valorAdicional={valorAdicional}
             />
             <hr />
-            <CalculadoraNovelos
-                valorTotalNovelo={{ valorTotalNovelo, setTotalValorNovelo }}
-            />
+            <CalculadoraNovelos setTotalValorNovelo={setTotalValorNovelo} />
             <hr />
             <AplicadorDesconto
                 valorTotal={valorTotal}
                 setValorTotal={setValorTotal}
             />
             <hr />
-            <h2>
+            <h3>
                 Total: R${" "}
                 {isNaN(valorTotal) ? "0.00" : Math.ceil(valorTotal.toFixed(2))}
-            </h2>
+            </h3>
         </main>
     );
 };

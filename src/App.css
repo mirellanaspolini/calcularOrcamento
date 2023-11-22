@@ -54,14 +54,14 @@ p {
     margin: 0 8px 4px 0;
 }
 
-h2 {
+h3 {
     text-align: center;
     margin-bottom: 16px;
     color: #d6a344;
 }
 
-h2,
 h3,
+h4,
 button {
     font-family: "Hynings Handwriting V2", sans-serif;
 }
@@ -110,8 +110,5 @@ button {
 @media (max-width: 600px) {
     main {
         padding: 16px 36px;
-    }
-    h2 {
-        font-size: 20px;
     }
 }

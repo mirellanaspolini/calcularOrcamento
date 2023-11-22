@@ -68,8 +68,8 @@ const ModalConteudo = ({ lista, taAberto }) => {
     return (
         <form>
             <div>
-                <h2>Cadastre uma nova linha</h2>
-                <h3>Novelo: </h3>
+                <h3>Cadastre uma nova linha</h3>
+                <h4>Novelo: </h4>
                 <CampoTexto
                     id="txtLinha"
                     label="Linha"
@@ -97,7 +97,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                     }
                     tipo="number"
                 />
-                <h3>Amostra: </h3>
+                <h4>Amostra: </h4>
                 <CampoTexto
                     id="txtAltura"
                     label="Altura (cm)"

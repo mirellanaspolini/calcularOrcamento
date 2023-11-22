@@ -5,7 +5,7 @@ import MensagemErro from "../MensagemErro";
 import Modal from "../Modal";
 import "./style.css";
 
-const CalculadoraNovelos = ({ valorTotalNovelo }) => {
+const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
     const [amostra, setAmostra] = useState({});
     const [novelo, setNovelo] = useState({});
     const [tamanhoPecaFinal, setTamanhoPecaFinal] = useState({
@@ -13,20 +13,16 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
         largura: 0,
     });
     const [erro, setErro] = useState("");
-    let numeroNovelosNecessario = 0;
+    let novelosNecessarios = 0;
     const printaQuantNovelo = useRef();
 
     const printaNumeroNovelos = () => {
         printaQuantNovelo.current.textContent = `Você precisará de ${
-            isNaN(numeroNovelosNecessario)
+            isNaN(novelosNecessarios)
                 ? "0"
-                : Math.ceil(numeroNovelosNecessario)
+                : Math.ceil(novelosNecessarios)
         } novelo(s)`;
     };
-
-    useEffect(() => {
-        printaNumeroNovelos();
-    }, [numeroNovelosNecessario]);
 
     const listaLinhasInicial = [
         {
@@ -105,21 +101,19 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
             (amostra.peso / areaAmostra) * areaPecaFinal
         );
 
-        numeroNovelosNecessario = consumoTotalFio / novelo.pesoNovelo;
+        novelosNecessarios = consumoTotalFio / novelo.pesoNovelo;
 
-        valorTotalNovelo.setTotalValorNovelo(
-            numeroNovelosNecessario >= 1
-                ? numeroNovelosNecessario * novelo.valorNovelo * 3
-                : numeroNovelosNecessario * novelo.valorNovelo
+        setTotalValorNovelo(
+            novelosNecessarios >= 1
+                ? novelosNecessarios * novelo.valorNovelo * 3
+                : novelosNecessarios * novelo.valorNovelo
         );
         printaNumeroNovelos();
     };
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const abreModal = () => {
-        setIsOpen(!isOpen);
-    };
+    const abreModal = () => setIsOpen(!isOpen);
 
     const validaValores = () => {
         if (
@@ -135,14 +129,13 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
 
     return (
         <div>
-            <h2>Calculadora de Novelos</h2>
+            <h3>Calculadora de Novelos</h3>
 
             <form>
-                <p style={{fontSize: "18px", marginBottom: "8px"}}>Tamanho do amigurumi: </p>
                 <div className="calcNovelo-tamanho_wrapper">
                     <CampoTexto
                         id="txtAltura"
-                        label="Altura (cm)"
+                        label="Altura da peça (cm)"
                         onChange={({ target }) =>
                             setTamanhoPecaFinal((anterior) => ({
                                 ...anterior,
@@ -153,7 +146,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                     />
                     <CampoTexto
                         id="txtLargura"
-                        label="Largura (cm)"
+                        label="Largura da peça (cm)"
                         onChange={({ target }) =>
                             setTamanhoPecaFinal((anterior) => ({
                                 ...anterior,
