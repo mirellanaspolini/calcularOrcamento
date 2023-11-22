@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CampoTexto from "../CampoTexto";
-import Modal from "../Modal";
 import MensagemErro from "../MensagemErro";
+import Modal from "../Modal";
+import "./style.css";
 
 const CalculadoraNovelos = ({ valorTotalNovelo }) => {
     const [amostra, setAmostra] = useState({});
@@ -137,9 +138,9 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
             <h2>Calculadora de Novelos</h2>
 
             <form>
-                <div className="gridTamanho">
+                <p style={{fontSize: "18px", marginBottom: "8px"}}>Tamanho do amigurumi: </p>
+                <div className="calcNovelo-tamanho_wrapper">
                     <CampoTexto
-                        tipo="text"
                         id="txtAltura"
                         label="Altura (cm)"
                         onChange={({ target }) =>
@@ -148,6 +149,7 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                                 altura: target.value,
                             }))
                         }
+                        tipo="text"
                     />
                     <CampoTexto
                         id="txtLargura"
@@ -161,30 +163,32 @@ const CalculadoraNovelos = ({ valorTotalNovelo }) => {
                         tipo="number"
                     />
                 </div>
-                <fieldset className="slctLinha">
+                <fieldset style={{ flexWrap: "wrap" }}>
                     <label htmlFor="selectLinha">Escolha a linha:</label>
-                    <select
-                        id="selectLinha"
-                        onChange={(e) => escolheLinha(e)}
-                        required
-                    >
-                        <option selected disabled value="">
-                            Selecione
-                        </option>
-                        {listaLinhas.map(({ id, palavraChave, linha }) => (
-                            <option key={id} value={palavraChave}>
-                                {linha}
+                    <span>
+                        <select
+                            id="selectLinha"
+                            onChange={(e) => escolheLinha(e)}
+                            required
+                        >
+                            <option selected disabled>
+                                Selecione
                             </option>
-                        ))}
-                    </select>
-                    <button
-                        type="button"
-                        className="btn btnIcone btnSecundario"
-                        title="Cadastrar uma linha"
-                        onClick={abreModal}
-                    >
-                        +
-                    </button>
+                            {listaLinhas.map(({ id, palavraChave, linha }) => (
+                                <option key={id} value={palavraChave}>
+                                    {linha}
+                                </option>
+                            ))}
+                        </select>
+                        <button
+                            type="button"
+                            className="btn btnIcone btnSecundario"
+                            title="Cadastrar uma nova linha"
+                            onClick={abreModal}
+                        >
+                            +
+                        </button>
+                    </span>
                 </fieldset>
                 <MensagemErro erro={erro} />
                 <button

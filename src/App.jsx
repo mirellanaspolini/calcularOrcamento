@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import AplicadorDesconto from "./componentes/AplicadorDesconto";
 import CalculadoraNovelos from "./componentes/CalculadoraNovelos";
 import CampoTexto from "./componentes/CampoTexto";
+import ValoresAdicionais from "./componentes/ValoresAdicionais";
 
 const App = () => {
     const [valorTotal, setValorTotal] = useState(0);
@@ -10,8 +12,6 @@ const App = () => {
     const [valorEnchimento, setValorEnchimento] = useState(0);
     const [valorAdicional, setValorAdicional] = useState(0);
     const [valorTotalNovelo, setTotalValorNovelo] = useState(0);
-    const [desconto, setDesconto] = useState(6);
-    const [percDesconto, setPercDesconto] = useState(6);
     const valoresFixos = 7;
 
     const calculaTotalComLucro = () => {
@@ -36,12 +36,6 @@ const App = () => {
         valorTotalNovelo,
     ]);
 
-    const calculaValorAdicional = ({ target }) => {
-        target.checked
-            ? setValorAdicional(valorAdicional + Number(target.dataset.preco))
-            : setValorAdicional(valorAdicional - Number(target.dataset.preco));
-    };
-
     return (
         <main>
             <h2>Calculadora de Orçamentos</h2>
@@ -65,42 +59,20 @@ const App = () => {
                 }
                 tipo="number"
             />
-            <div className="checkbox-wrapper">
-                <input
-                    type="checkbox"
-                    id="txtChaveiro"
-                    data-preco="5"
-                    onChange={calculaValorAdicional}
-                />
-                <label htmlFor="txtChaveiro">Chaveiro</label>
-                <input
-                    type="checkbox"
-                    id="txtFeltro"
-                    data-preco="5"
-                    onChange={calculaValorAdicional}
-                />
-                <label htmlFor="txtFeltro">Feltro</label>
-                <input
-                    type="checkbox"
-                    id="txtOlhinhos"
-                    data-preco="0.40"
-                    onChange={calculaValorAdicional}
-                />
-                <label htmlFor="txtOlhinhos">Olhinhos</label>
-            </div>
-
+            <ValoresAdicionais
+                setValorAdicional={setValorAdicional}
+                valorAdicional={valorAdicional}
+            />
             <hr />
-
             <CalculadoraNovelos
                 valorTotalNovelo={{ valorTotalNovelo, setTotalValorNovelo }}
             />
             <hr />
-
-            <CampoTexto
-                id="txtDesconto"
-                label="Adicionar porcentagem de desconto"
-                tipo="number"
+            <AplicadorDesconto
+                valorTotal={valorTotal}
+                setValorTotal={setValorTotal}
             />
+            <hr />
             <h2>
                 Total: R${" "}
                 {isNaN(valorTotal) ? "0.00" : Math.ceil(valorTotal.toFixed(2))}

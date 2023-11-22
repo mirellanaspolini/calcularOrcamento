@@ -1,0 +1,17 @@
+.calcNovelo-tamanho_wrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.calcNovelo-tamanho_wrapper fieldset {
+    display: flex;
+    align-items: initial;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.calcNovelo-tamanho_wrapper input {
+    display: block;
+    width: 100%;
+}

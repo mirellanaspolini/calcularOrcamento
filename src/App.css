@@ -14,9 +14,27 @@ body {
     margin: 15px;
 }
 
+main {
+    margin: auto;
+    background-color: #fff;
+    padding: 26px 52px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px 3px #f3cfd7;
+    width: 100%;
+}
+
 hr {
     color: pink;
     margin: 16px 0;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
 }
 
 input,
@@ -25,7 +43,6 @@ select {
     border: solid 2px #f4c4c4;
     padding: 0.5rem 0.8rem;
     border-radius: 8px;
-    margin-bottom: 8px;
     display: inline-block;
 }
 
@@ -35,36 +52,18 @@ p {
     color: #5a4a4a;
     font-size: 15px;
     margin: 0 8px 4px 0;
-    line-height: 1.3;
 }
 
 h2 {
     text-align: center;
-    margin: 16px 0;
+    margin-bottom: 16px;
     color: #d6a344;
 }
 
 h2,
-h3 {
+h3,
+button {
     font-family: "Hynings Handwriting V2", sans-serif;
-}
-
-fieldset {
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-main {
-    margin: auto;
-    background-color: #fff;
-    padding: 26px 52px;
-    border-radius: 20px;
-    box-shadow: 3px 3px 10px 3px #f3cfd7;
-    max-width: 600px;
-    width: 100%;
 }
 
 button {
@@ -72,15 +71,12 @@ button {
     cursor: pointer;
     border-radius: 8px;
     padding: 8px 16px;
-    margin: 4px 0 4px;
-}
-
-.btn {
+    margin: 4px 0;
     border: 2px solid transparent;
+    height: fit-content;
 }
 
 .btnFull {
-    border: 2px solid transparent;
     width: 100%;
 }
 
@@ -104,45 +100,16 @@ button {
     background-color: #fff;
     color: #cc8c39;
     margin-bottom: 8px;
-    margin-left: 4px;
+    margin-left: 8px;
 }
 
 .btnSecundario:hover {
-    background-color: #fffadb;
-}
-
-.gridTamanho {
-    display: flex;
-    gap: 16px;
-}
-
-.gridTamanho fieldset {
-    display: flex;
-    align-items: initial;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.gridTamanho input {
-    display: block;
-    width: 100%;
-}
-
-.checkbox-wrapper {
-    margin-top: 12px;
-}
-
-.checkbox-wrapper input[type="checkbox"] {
-    margin: 0px 4px;
+    background-color: #faeccf;
 }
 
 @media (max-width: 600px) {
     main {
         padding: 16px 36px;
-    }
-    .slctLinha {
-        display: flex;
-        flex-wrap: wrap;
     }
     h2 {
         font-size: 20px;
