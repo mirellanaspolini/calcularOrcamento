@@ -9,7 +9,7 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
     const calculaDesconto = () => {
         const valorDesconto = valorTotal * (percDesconto / 100);
         const valorTotalComDesconto = valorTotal - valorDesconto;
-        
+
         setDesconto(valorDesconto);
         setValorTotal(valorTotalComDesconto);
     };
@@ -29,6 +29,7 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
                 tipo="number"
                 onChange={({ target }) => setPercDesconto(target.value)}
                 valor={percDesconto}
+                placeholder="0"
             />
             {desconto === 0 ? (
                 <button

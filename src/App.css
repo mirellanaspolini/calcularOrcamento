@@ -71,13 +71,13 @@ button {
     cursor: pointer;
     border-radius: 8px;
     padding: 8px 16px;
-    margin: 4px 0;
     border: 2px solid transparent;
     height: fit-content;
 }
 
 .btnFull {
     width: 100%;
+    margin: 4px 0;
 }
 
 .btnPrimario {
@@ -99,12 +99,16 @@ button {
     border-color: #cc8c39;
     background-color: #fff;
     color: #cc8c39;
-    margin-bottom: 8px;
-    margin-left: 8px;
+    /* margin-bottom: 8px;
+    margin-left: 8px; */
 }
 
 .btnSecundario:hover {
     background-color: #faeccf;
+}
+
+#selectLinha {
+    margin-right: 8px;
 }
 
 @media (max-width: 600px) {

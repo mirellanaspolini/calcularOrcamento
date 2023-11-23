@@ -74,6 +74,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                     id="txtLinha"
                     label="Linha"
                     onChange={({ target }) => setLinha(target.value)}
+                    placeholder="Nome da linha"
                 />
                 <CampoTexto
                     id="txtPesoNovelo"
@@ -85,6 +86,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                         }))
                     }
                     tipo="number"
+                    placeholder="0"
                 />
                 <CampoTexto
                     id="txtValorNovelo"
@@ -96,6 +98,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                         }))
                     }
                     tipo="number"
+                    placeholder="0"
                 />
                 <h4>Amostra: </h4>
                 <CampoTexto
@@ -108,6 +111,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                         }))
                     }
                     tipo="number"
+                    placeholder="0"
                 />
                 <CampoTexto
                     id="txtLargura"
@@ -119,6 +123,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                         }))
                     }
                     tipo="number"
+                    placeholder="0"
                 />
                 <CampoTexto
                     id="txtPeso"
@@ -130,6 +135,7 @@ const ModalConteudo = ({ lista, taAberto }) => {
                         }))
                     }
                     tipo="number"
+                    placeholder="0"
                 />
             </div>
             <MensagemErro erro={erro} />

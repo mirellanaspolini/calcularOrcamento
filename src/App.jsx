@@ -44,12 +44,14 @@ const App = () => {
                 label="Quant. de horas"
                 onChange={({ target }) => setValorTotalHoras(target.value * 8)}
                 tipo="number"
+                placeholder="0"
             />
             <CampoTexto
                 id="txtQuantEnchimento"
                 label="Enchimento (g)"
                 onChange={({ target }) => setValorEnchimento(target.value / 10)}
                 tipo="number"
+                placeholder="0"
             />
             <CampoTexto
                 id="txtQuantAgulhas"
@@ -58,6 +60,7 @@ const App = () => {
                     setValorTotalAgulhas(target.value * 3.7)
                 }
                 tipo="number"
+                placeholder="0"
             />
             <ValoresAdicionais
                 setValorAdicional={setValorAdicional}

@@ -18,9 +18,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
 
     const printaNumeroNovelos = () => {
         printaQuantNovelo.current.textContent = `Você precisará de ${
-            isNaN(novelosNecessarios)
-                ? "0"
-                : Math.ceil(novelosNecessarios)
+            isNaN(novelosNecessarios) ? "0" : Math.ceil(novelosNecessarios)
         } novelo(s)`;
     };
 
@@ -142,7 +140,8 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
                                 altura: target.value,
                             }))
                         }
-                        tipo="text"
+                        tipo="number"
+                        placeholder="0"
                     />
                     <CampoTexto
                         id="txtLargura"
@@ -154,6 +153,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
                             }))
                         }
                         tipo="number"
+                        placeholder="0"
                     />
                 </div>
                 <fieldset style={{ flexWrap: "wrap" }}>
