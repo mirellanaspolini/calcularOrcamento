@@ -64,7 +64,8 @@ $ npm run dev
 Esse projeto foi desenvolvido com:
 
 -   React
--   Javascript
+-   JavaScript
+-   CSS
 -   ChatGPT
   
 ---
