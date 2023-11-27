@@ -59,7 +59,6 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
                 largura: 10,
                 altura: 5,
                 peso: 8,
-                // carreiras 5, 12 pontos
             },
             noveloInfo: {
                 pesoNovelo: 85,
@@ -126,7 +125,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
     };
 
     return (
-        <div>
+        <>
             <h3>Calculadora de Novelos</h3>
 
             <form>
@@ -197,7 +196,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
                 taAberto={{ isOpen, setIsOpen }}
                 lista={{ listaLinhas, setListaLinhas }}
             />
-        </div>
+        </>
     );
 };
 

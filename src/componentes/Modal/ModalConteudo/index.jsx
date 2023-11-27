@@ -67,81 +67,79 @@ const ModalConteudo = ({ lista, taAberto }) => {
 
     return (
         <form>
-            <div>
-                <h3>Cadastre uma nova linha</h3>
-                <h4>Novelo: </h4>
-                <CampoTexto
-                    id="txtLinha"
-                    label="Linha"
-                    onChange={({ target }) => setLinha(target.value)}
-                    placeholder="Nome da linha"
-                />
-                <CampoTexto
-                    id="txtPesoNovelo"
-                    label="Peso (g)"
-                    onChange={({ target }) =>
-                        setNoveloInfo((anterior) => ({
-                            ...anterior,
-                            pesoNovelo: target.value,
-                        }))
-                    }
-                    tipo="number"
-                    placeholder="0"
-                />
-                <CampoTexto
-                    id="txtValorNovelo"
-                    label="Valor"
-                    onChange={({ target }) =>
-                        setNoveloInfo((anterior) => ({
-                            ...anterior,
-                            valorNovelo: target.value,
-                        }))
-                    }
-                    tipo="number"
-                    placeholder="0"
-                />
-                <h4>Amostra: </h4>
-                <CampoTexto
-                    id="txtAltura"
-                    label="Altura (cm)"
-                    onChange={({ target }) =>
-                        setAmostra((anterior) => ({
-                            ...anterior,
-                            altura: target.value,
-                        }))
-                    }
-                    tipo="number"
-                    placeholder="0"
-                />
-                <CampoTexto
-                    id="txtLargura"
-                    label="Largura (cm)"
-                    onChange={({ target }) =>
-                        setAmostra((anterior) => ({
-                            ...anterior,
-                            largura: target.value,
-                        }))
-                    }
-                    tipo="number"
-                    placeholder="0"
-                />
-                <CampoTexto
-                    id="txtPeso"
-                    label="Peso (g)"
-                    onChange={({ target }) =>
-                        setAmostra((anterior) => ({
-                            ...anterior,
-                            peso: target.value,
-                        }))
-                    }
-                    tipo="number"
-                    placeholder="0"
-                />
-            </div>
+            <h3>Cadastre uma nova linha</h3>
+            <h4>Novelo: </h4>
+            <CampoTexto
+                id="txtLinha"
+                label="Linha"
+                onChange={({ target }) => setLinha(target.value)}
+                placeholder="Nome da linha"
+            />
+            <CampoTexto
+                id="txtPesoNovelo"
+                label="Peso (g)"
+                onChange={({ target }) =>
+                    setNoveloInfo((anterior) => ({
+                        ...anterior,
+                        pesoNovelo: target.value,
+                    }))
+                }
+                tipo="number"
+                placeholder="0"
+            />
+            <CampoTexto
+                id="txtValorNovelo"
+                label="Valor"
+                onChange={({ target }) =>
+                    setNoveloInfo((anterior) => ({
+                        ...anterior,
+                        valorNovelo: target.value,
+                    }))
+                }
+                tipo="number"
+                placeholder="0"
+            />
+            <h4>Amostra: </h4>
+            <CampoTexto
+                id="txtAltura"
+                label="Altura (cm)"
+                onChange={({ target }) =>
+                    setAmostra((anterior) => ({
+                        ...anterior,
+                        altura: target.value,
+                    }))
+                }
+                tipo="number"
+                placeholder="0"
+            />
+            <CampoTexto
+                id="txtLargura"
+                label="Largura (cm)"
+                onChange={({ target }) =>
+                    setAmostra((anterior) => ({
+                        ...anterior,
+                        largura: target.value,
+                    }))
+                }
+                tipo="number"
+                placeholder="0"
+            />
+            <CampoTexto
+                id="txtPeso"
+                label="Peso (g)"
+                onChange={({ target }) =>
+                    setAmostra((anterior) => ({
+                        ...anterior,
+                        peso: target.value,
+                    }))
+                }
+                tipo="number"
+                placeholder="0"
+            />
             <MensagemErro erro={erro} />
             {feedback && <p>{feedback}</p>}
 
-            <span style={{ display: "flex", gap: "2px" }}>
+            <span style={{ display: "flex", gap: "8px" }}>
                 <button
                     className="btnFull btnPrimario"
                     type="submit"

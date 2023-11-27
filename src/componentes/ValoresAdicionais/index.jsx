@@ -35,6 +35,7 @@ const ValoresAdicionais = ({ setValorAdicional, valorAdicional }) => {
         <div style={{marginTop: "12px"}}>
             {campos.map(({ id, label, preco }) => (
                 <Checkbox
+                    key={id}
                     id={id}
                     label={label}
                     preco={preco}

@@ -29,7 +29,6 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
                 tipo="number"
                 onChange={({ target }) => setPercDesconto(target.value)}
                 valor={percDesconto}
-                placeholder="0"
             />
             {desconto === 0 ? (
                 <button
