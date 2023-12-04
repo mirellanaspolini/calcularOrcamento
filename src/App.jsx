@@ -38,7 +38,7 @@ const App = () => {
 
     return (
         <main>
-            <img style={{display:"block", margin: "0 auto 16px"}} width="120px" src="public/logo.svg" alt="" />
+            <img style={{display:"block", margin: "0 auto 16px"}} width="120px" src="/logo.svg" alt="Logo da Pingurumis - crocheteria" />
             <h3>Calculadora de Orçamentos</h3>
             <CampoTexto
                 id="txtQuantHoras"
