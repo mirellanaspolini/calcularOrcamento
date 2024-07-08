@@ -34,7 +34,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             },
             noveloInfo: {
                 pesoNovelo: 50,
-                valorNovelo: 7.25,
+                valorNovelo: 7.9,
             },
         },
         {
@@ -48,7 +48,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             },
             noveloInfo: {
                 pesoNovelo: 85,
-                valorNovelo: 10.4,
+                valorNovelo: 12.2,
             },
         },
         {
@@ -62,7 +62,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             },
             noveloInfo: {
                 pesoNovelo: 85,
-                valorNovelo: 10.4,
+                valorNovelo: 12.2,
             },
         },
     ];
