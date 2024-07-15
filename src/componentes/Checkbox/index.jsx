@@ -4,6 +4,7 @@ const Checkbox = ({ id, preco, label, onChange }) => {
     return (
         <>
             <input
+                className="checkbox"
                 style={{ margin: "0px 4px" }}
                 type="checkbox"
                 id={id}

@@ -1,13 +1,13 @@
 h4 {
-    color: #E84271;
+    color: #ad7310;
     margin-bottom: 8px;
     margin-top: 16px;
 }
 
 .modalBackgroundBlur {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     backdrop-filter: blur(4px);
@@ -22,9 +22,7 @@ h4 {
 
 .modal {
     background-color: white;
-    box-shadow: 3px 3px 10px 3px #f3cfd7;
-    padding: 32px;
+    box-shadow: 0px 3px 10px #e8bac4;
+    padding: 25px;
     border-radius: 20px;
-    width: fit-content;
-    height: fit-content;
 }

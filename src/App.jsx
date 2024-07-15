@@ -75,9 +75,9 @@ const App = () => {
                 setValorTotal={setValorTotal}
             />
             <hr />
-            <h3>
+            <h2>
                 Total: R$ {isNaN(valorTotal) ? "0.00" : valorTotal.toFixed(2)}
-            </h3>
+            </h2>
         </main>
     );
 };

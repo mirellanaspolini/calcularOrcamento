@@ -14,22 +14,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffeef2;
+    background-color: #fee7c6;
     min-height: 100vh;
     margin: 15px;
+    background-image: url(/public/Gato.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 main {
     margin: auto;
-    background-color: #fff;
-    padding: 26px 52px;
+    background-color: #ffffff99;
+    padding: 20px 25px;
     border-radius: 20px;
-    box-shadow: 3px 3px 10px 3px #f3cfd7;
+    /* box-shadow: 3px 3px 10px 3px #f3cfd7; */
+    border: 1px solid #ffffff40;
+    backdrop-filter: blur(8px);
     width: 100%;
 }
 
 hr {
-    color: pink;
+    border: 1px solid #ffb8c499;
     margin: 16px 0;
 }
 
@@ -44,11 +49,42 @@ fieldset {
 
 input,
 select {
-    background-color: #ffeef2;
-    border: solid 2px #E84271;
-    padding: 0.5rem 0.8rem;
-    border-radius: 8px;
+    background-color: #fff;
+    border: solid 2px #f9ebf2;
+    padding: 0.75rem 1rem;
+    border-radius: 16px;
     display: inline-block;
+}
+
+.checkbox {
+    appearance: none;
+    position: relative;
+    padding: 12px;
+    border-radius: 8px;
+    vertical-align: middle;
+}
+
+.checkbox::after {
+    content: " ";
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+}
+
+.checkbox:checked:after {
+    display: block;
+}
+
+.checkbox:checked {
+    background-color: #f3c63f;
 }
 
 label,
@@ -62,26 +98,31 @@ p {
 h3 {
     text-align: center;
     margin-bottom: 16px;
-    color: #F5AD01;
+    color: #d89d14;
     font-size: 26px;
 }
 
-h3,
-h4,
-button {
+h2 {
+    text-align: center;
+    color: #f5ad01;
+    font-size: 26px;
+}
+
+h3 {
     font-family: "Hynings Handwriting V2", sans-serif;
     letter-spacing: 0.5px;
 }
 
 button {
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 8px 16px;
     border: 2px solid transparent;
     height: fit-content;
     font-size: 18px;
     letter-spacing: 0.5px;
+    box-shadow: 0px 3px #de9506;
 }
 
 .btnFull {
@@ -90,12 +131,12 @@ button {
 }
 
 .btnPrimario {
-    background-color: #F5AD01;
-    color: #fff;
+    background-color: #fbcf4e;
+    color: #58321e;
 }
 
 .btnPrimario:hover {
-    background-color: #d88406;
+    background-color: #f3c63f;
 }
 
 .btnIcone {
@@ -105,9 +146,9 @@ button {
 }
 
 .btnSecundario {
-    border-color: #F5AD01;
-    background-color: #fff;
-    color: #F5AD01;
+    /* border-color: #F5AD01; */
+    background-color: #fff9e8;
+    color: #f5ad01;
 }
 
 .btnSecundario:hover {
