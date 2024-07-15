@@ -12,7 +12,7 @@ const App = () => {
     const [valorEnchimento, setValorEnchimento] = useState(0);
     const [valorAdicional, setValorAdicional] = useState(0);
     const [valorTotalNovelo, setTotalValorNovelo] = useState(0);
-    const valoresFixos = 17;
+    const valoresFixos = 10;
 
     const calculaTotalComLucro = () => {
         const somaTotal =
