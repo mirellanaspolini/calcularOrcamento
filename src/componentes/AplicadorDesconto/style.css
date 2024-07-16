@@ -3,6 +3,11 @@
     gap: 8px;
 }
 
+.campoDesconto fieldset {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
 @media (max-width: 600px) {
     .campoDesconto {
         flex-wrap: wrap;
@@ -13,8 +18,3 @@
     }
 }
 
-@media (min-width: 600px) {
-    .campoDesconto input {
-        margin: 0;
-    }
-}

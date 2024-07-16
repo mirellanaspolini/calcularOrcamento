@@ -1,10 +1,17 @@
 @font-face {
-    font-family: "Hynings Handwriting V2";
-    src: url(../public/fonte/HyningsHandwritingV2-Regular.ttf);
+    font-family: "Fuzzy Bubbles";
+    font-weight: 700;
+    src: url(../public/fonte/FuzzyBubbles-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Laila";
+    font-weight: 600;
+    src: url(../public/fonte/Laila-SemiBold.ttf);
 }
 
 * {
-    font-family: sans-serif;
+    font-family: "Laila";
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -23,18 +30,16 @@ body {
 }
 
 main {
-    margin: auto;
     background-color: #ffffff99;
     padding: 20px 25px;
     border-radius: 20px;
-    /* box-shadow: 3px 3px 10px 3px #f3cfd7; */
     border: 1px solid #ffffff40;
     backdrop-filter: blur(8px);
-    width: 100%;
+    max-width: 590px;
 }
 
 hr {
-    border: 1px solid #ffb8c499;
+    border: 1px solid #ffd6b899;
     margin: 16px 0;
 }
 
@@ -44,33 +49,51 @@ fieldset {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
-    gap: 8px;
+    width: 100%;
+}
+
+.calcOrcamento_wrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.calcOrcamento_wrapper fieldset {
+    display: initial;
+    width: 100%;
 }
 
 input,
 select {
     background-color: #fff;
     border: solid 2px #f9ebf2;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 16px;
-    display: inline-block;
+}
+
+input:not(.checkbox) {
+    width: 100%;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .checkbox {
     appearance: none;
     position: relative;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 7px;
     vertical-align: middle;
 }
 
 .checkbox::after {
     content: " ";
     position: absolute;
-    left: 8px;
-    top: 4px;
-    width: 5px;
-    height: 10px;
+    left: 5px;
+    top: 2px;
+    width: 3px;
+    height: 7px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
@@ -89,39 +112,34 @@ select {
 
 label,
 p {
-    font-weight: 600;
     color: #5a4a4a;
     font-size: 15px;
-    margin: 0 8px 4px 0;
 }
 
 h3 {
     text-align: center;
     margin-bottom: 16px;
     color: #d89d14;
-    font-size: 26px;
 }
 
 h2 {
     text-align: center;
     color: #f5ad01;
-    font-size: 26px;
 }
 
-h3 {
-    font-family: "Hynings Handwriting V2", sans-serif;
-    letter-spacing: 0.5px;
+h3,
+h2,
+button {
+    font-family: "Fuzzy Bubbles", sans-serif;
 }
 
 button {
-    font-weight: 600;
     cursor: pointer;
     border-radius: 16px;
-    padding: 8px 16px;
+    padding: 8px 16px 4px;
     border: 2px solid transparent;
     height: fit-content;
     font-size: 18px;
-    letter-spacing: 0.5px;
     box-shadow: 0px 3px #de9506;
 }
 
@@ -146,21 +164,25 @@ button {
 }
 
 .btnSecundario {
-    /* border-color: #F5AD01; */
+    border-color: #ffecc1;
+    border-bottom: none;
     background-color: #fff9e8;
-    color: #f5ad01;
+    color: #de9506;
 }
 
 .btnSecundario:hover {
-    background-color: #faf2e4;
+    background-color: #fdf1d4;
 }
-
-#selectLinha {
-    margin-right: 8px;
-}
-
 @media (max-width: 600px) {
     main {
-        padding: 16px 36px;
+        padding: 20px 15px;
+    }
+    .calcOrcamento_wrapper {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .calcOrcamento_wrapper fieldset {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

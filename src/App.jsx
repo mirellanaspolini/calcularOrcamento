@@ -38,31 +38,42 @@ const App = () => {
 
     return (
         <main>
-            <img style={{display:"block", margin: "0 auto 16px"}} width="120px" src="/logo.svg" alt="Logo da Pingurumis - crocheteria" />
+            <img
+                style={{ display: "block", margin: "0 auto 16px" }}
+                width="100px"
+                src="/logo.svg"
+                alt="Logo da Pingurumis - crocheteria"
+            />
             <h3>Calculadora de Orçamentos</h3>
-            <CampoTexto
-                id="txtQuantHoras"
-                label="Quant. de horas"
-                onChange={({ target }) => setValorTotalHoras(target.value * 8)}
-                tipo="number"
-                placeholder="0"
-            />
-            <CampoTexto
-                id="txtQuantEnchimento"
-                label="Enchimento (g)"
-                onChange={({ target }) => setValorEnchimento(target.value / 10)}
-                tipo="number"
-                placeholder="0"
-            />
-            <CampoTexto
-                id="txtQuantAgulhas"
-                label="Quant. agulhas"
-                onChange={({ target }) =>
-                    setValorTotalAgulhas(target.value * 3.7)
-                }
-                tipo="number"
-                placeholder="0"
-            />
+            <div className="calcOrcamento_wrapper">
+                <CampoTexto
+                    id="txtQuantHoras"
+                    label="Quant. de horas"
+                    onChange={({ target }) =>
+                        setValorTotalHoras(target.value * 8)
+                    }
+                    tipo="number"
+                    placeholder="0"
+                />
+                <CampoTexto
+                    id="txtQuantEnchimento"
+                    label="Enchimento (g)"
+                    onChange={({ target }) =>
+                        setValorEnchimento(target.value / 10)
+                    }
+                    tipo="number"
+                    placeholder="0"
+                />
+                <CampoTexto
+                    id="txtQuantAgulhas"
+                    label="Quant. agulhas"
+                    onChange={({ target }) =>
+                        setValorTotalAgulhas(target.value * 3.7)
+                    }
+                    tipo="number"
+                    placeholder="0"
+                />
+            </div>
             <ValoresAdicionais
                 setValorAdicional={setValorAdicional}
                 valorAdicional={valorAdicional}

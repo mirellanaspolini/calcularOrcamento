@@ -33,7 +33,7 @@ const AplicadorDesconto = ({ valorTotal, setValorTotal }) => {
             {desconto === 0 ? (
                 <button
                     type="button"
-                    className="btn btnPrimario"
+                    className="btn btnSecundario"
                     onClick={calculaDesconto}
                 >
                     Adicionar

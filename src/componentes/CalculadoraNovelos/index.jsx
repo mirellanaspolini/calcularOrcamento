@@ -17,7 +17,7 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
     const printaQuantNovelo = useRef();
 
     const printaNumeroNovelos = () => {
-        printaQuantNovelo.current.textContent = `Você precisará de ${
+        printaQuantNovelo.current.textContent = `Você vai precisar de ${
             isNaN(novelosNecessarios) ? "0" : Math.ceil(novelosNecessarios)
         } novelo(s)`;
     };
@@ -129,59 +129,74 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             <h3>Calculadora de Novelos</h3>
 
             <form>
-                <div className="calcNovelo-tamanho_wrapper">
-                    <CampoTexto
-                        id="txtAltura"
-                        label="Altura da peça (cm)"
-                        onChange={({ target }) =>
-                            setTamanhoPecaFinal((anterior) => ({
-                                ...anterior,
-                                altura: target.value,
-                            }))
-                        }
-                        tipo="number"
-                        placeholder="0"
-                    />
-                    <CampoTexto
-                        id="txtLargura"
-                        label="Largura da peça (cm)"
-                        onChange={({ target }) =>
-                            setTamanhoPecaFinal((anterior) => ({
-                                ...anterior,
-                                largura: target.value,
-                            }))
-                        }
-                        tipo="number"
-                        placeholder="0"
-                    />
-                </div>
-                <fieldset style={{ flexWrap: "wrap" }}>
-                    <label htmlFor="selectLinha">Escolha a linha:</label>
-                    <span>
-                        <select
-                            id="selectLinha"
-                            onChange={(e) => escolheLinha(e)}
-                            required
+                <div className="calcNovelo_campos">
+                    <div className="calcNovelo-tamanho_wrapper">
+                        <p style={{marginBottom: "8px"}}>Tamanho da peça em cm</p>
+                        <div>
+                            <CampoTexto
+                                id="txtAltura"
+                                label="Altura"
+                                onChange={({ target }) =>
+                                    setTamanhoPecaFinal((anterior) => ({
+                                        ...anterior,
+                                        altura: target.value,
+                                    }))
+                                }
+                                tipo="number"
+                                placeholder="Altura"
+                            />
+                            <CampoTexto
+                                id="txtLargura"
+                                label="Largura"
+                                onChange={({ target }) =>
+                                    setTamanhoPecaFinal((anterior) => ({
+                                        ...anterior,
+                                        largura: target.value,
+                                    }))
+                                }
+                                tipo="number"
+                                placeholder="Largura"
+                            />
+                        </div>
+                    </div>
+                    <fieldset
+                        className="calcNovelo-escolherLinha"
+                        style={{ flexWrap: "wrap" }}
+                    >
+                        <label
+                            style={{ display: "inline-block" }}
+                            htmlFor="selectLinha"
                         >
-                            <option selected disabled>
-                                Selecione
-                            </option>
-                            {listaLinhas.map(({ id, palavraChave, linha }) => (
-                                <option key={id} value={palavraChave}>
-                                    {linha}
+                            Escolha a linha:
+                        </label>
+                        <span>
+                            <select
+                                id="selectLinha"
+                                onChange={(e) => escolheLinha(e)}
+                                required
+                            >
+                                <option selected disabled>
+                                    Selecione
                                 </option>
-                            ))}
-                        </select>
-                        <button
-                            type="button"
-                            className="btn btnIcone btnSecundario"
-                            title="Cadastrar uma nova linha"
-                            onClick={abreModal}
-                        >
-                            +
-                        </button>
-                    </span>
-                </fieldset>
+                                {listaLinhas.map(
+                                    ({ id, palavraChave, linha }) => (
+                                        <option key={id} value={palavraChave}>
+                                            {linha}
+                                        </option>
+                                    )
+                                )}
+                            </select>
+                            <button
+                                type="button"
+                                className="btn btnIcone btnSecundario"
+                                title="Cadastrar uma nova linha"
+                                onClick={abreModal}
+                            >
+                                +
+                            </button>
+                        </span>
+                    </fieldset>
+                </div>
                 <MensagemErro erro={erro} />
                 <button
                     className="btnFull btnPrimario"

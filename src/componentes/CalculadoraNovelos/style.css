@@ -1,6 +1,17 @@
-.calcNovelo-tamanho_wrapper {
-    display: flex;
+.calcNovelo_campos {
+    display: grid;
     gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.calcNovelo-tamanho_wrapper div {
+    display: flex;
+    gap: 4px;
+}
+
+.calcNovelo-escolherLinha span {
+    display: flex;
+    width: 100%;
 }
 
 .calcNovelo-tamanho_wrapper fieldset {
@@ -13,5 +24,20 @@
 
 .calcNovelo-tamanho_wrapper input {
     display: block;
+}
+
+.calcNovelo-tamanho_wrapper label {
+    visibility: hidden;
+    position: absolute;
+}
+
+#selectLinha {
     width: 100%;
+    margin-right: 4px;
+}
+
+@media (max-width: 600px) {
+    .calcNovelo_campos {
+        grid-template-columns: 1fr;
+    }
 }

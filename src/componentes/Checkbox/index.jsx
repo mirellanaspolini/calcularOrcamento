@@ -2,7 +2,7 @@ import React from "react";
 
 const Checkbox = ({ id, preco, label, onChange }) => {
     return (
-        <>
+        <div>
             <input
                 className="checkbox"
                 style={{ margin: "0px 4px" }}
@@ -12,7 +12,7 @@ const Checkbox = ({ id, preco, label, onChange }) => {
                 onChange={onChange}
             />
             <label htmlFor={id}>{label}</label>
-        </>
+        </div>
     );
 };
 
