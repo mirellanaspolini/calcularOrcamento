@@ -8,12 +8,12 @@ import "./style.css";
 const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
     const [amostra, setAmostra] = useState({});
     const [novelo, setNovelo] = useState({});
-    const [tamanhoPecaFinal, setTamanhoPecaFinal] = useState({
+    const [pecaFinal, setPecaFinal] = useState({
         altura: 0,
         largura: 0,
     });
     const [erro, setErro] = useState("");
-    let novelosNecessarios = 0;
+    const [novelosNecessarios, setNovelosNecessarios] = useState(0);
     const printaQuantNovelo = useRef();
 
     const printaNumeroNovelos = () => {
@@ -28,9 +28,9 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             linha: "Balloon Amigo",
             palavraChave: "balloonAmigo",
             amostra: {
-                largura: 10,
-                altura: 5,
-                peso: 4.5,
+                altura: 4,
+                largura: 4,
+                peso: 4,
             },
             noveloInfo: {
                 pesoNovelo: 50,
@@ -42,9 +42,9 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             linha: "Amigurumi Pelúcia",
             palavraChave: "amigurumiPelucia",
             amostra: {
-                largura: 10,
-                altura: 5,
-                peso: 4,
+                altura: 4.5,
+                largura: 4.5,
+                peso: 7,
             },
             noveloInfo: {
                 pesoNovelo: 85,
@@ -53,11 +53,11 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
         },
         {
             id: uuidv4(),
-            linha: "Amigurumi Pelúcia duplo",
+            linha: "Amigurumi Pelucia Duplo",
             palavraChave: "amigurumiPeluciaDuplo",
             amostra: {
-                largura: 10,
                 altura: 5,
+                largura: 10,
                 peso: 8,
             },
             noveloInfo: {
@@ -92,21 +92,29 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
         setErro("");
         if (!validaValores()) return;
 
-        let areaAmostra = amostra.altura * amostra.largura;
-        let areaPecaFinal = tamanhoPecaFinal.altura * tamanhoPecaFinal.largura;
-        let consumoTotalFio = Math.ceil(
-            (amostra.peso / areaAmostra) * areaPecaFinal
-        );
+        const areaAmostra = calcularAreaCilindro(amostra.largura / 2, amostra.altura);
+        const areaPecaFinal = calcularAreaCilindro(pecaFinal.largura / 2, pecaFinal.altura);
+        const pesopeçafinal = (amostra.peso * areaPecaFinal) / areaAmostra;
 
-        novelosNecessarios = consumoTotalFio / novelo.pesoNovelo;
+        setNovelosNecessarios(pesopeçafinal / novelo.pesoNovelo);
 
         setTotalValorNovelo(
             novelosNecessarios >= 1
                 ? novelosNecessarios * novelo.valorNovelo * 3
                 : novelosNecessarios * novelo.valorNovelo
         );
+
         printaNumeroNovelos();
     };
+
+    const calcularAreaCilindro = (raio, altura) => {
+        const areaBase = Math.PI * raio * raio;
+        const areaLateral = 2 * Math.PI * raio * altura;
+        const areaTotal = 2 * areaBase + areaLateral;
+        
+        return areaTotal;
+      }
+      
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -114,8 +122,8 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
 
     const validaValores = () => {
         if (
-            tamanhoPecaFinal.largura == "" ||
-            tamanhoPecaFinal.altura == "" ||
+            pecaFinal.largura == "" ||
+            pecaFinal.altura == "" ||
             novelo.pesoNovelo == ""
         ) {
             setErro("Preencha todos os campos");
@@ -131,31 +139,31 @@ const CalculadoraNovelos = ({ setTotalValorNovelo }) => {
             <form>
                 <div className="calcNovelo_campos">
                     <div className="calcNovelo-tamanho_wrapper">
-                        <p style={{marginBottom: "8px"}}>Tamanho da peça em cm</p>
+                        <p>Tamanho da peça (cm)</p>
                         <div>
                             <CampoTexto
                                 id="txtAltura"
                                 label="Altura"
                                 onChange={({ target }) =>
-                                    setTamanhoPecaFinal((anterior) => ({
+                                    setPecaFinal((anterior) => ({
                                         ...anterior,
                                         altura: target.value,
                                     }))
                                 }
                                 tipo="number"
-                                placeholder="Altura"
+                                placeholder="0"
                             />
                             <CampoTexto
                                 id="txtLargura"
                                 label="Largura"
                                 onChange={({ target }) =>
-                                    setTamanhoPecaFinal((anterior) => ({
+                                    setPecaFinal((anterior) => ({
                                         ...anterior,
                                         largura: target.value,
                                     }))
                                 }
                                 tipo="number"
-                                placeholder="Largura"
+                                placeholder="0"
                             />
                         </div>
                     </div>

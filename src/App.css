@@ -24,13 +24,13 @@ body {
     background-color: #fee7c6;
     min-height: 100vh;
     margin: 15px;
-    background-image: url(/public/Gato.svg);
+    background-image: url(/Gato.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
 }
 
 main {
-    background-color: #ffffff99;
+    background-color: #ffffffb8;
     padding: 20px 25px;
     border-radius: 20px;
     border: 1px solid #ffffff40;
@@ -45,21 +45,18 @@ hr {
 
 fieldset {
     border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 8px;
     width: 100%;
+}
+
+label[for="txtDesconto"] {
+    display: flex;
+    align-items: center;
 }
 
 .calcOrcamento_wrapper {
     display: flex;
     gap: 16px;
-}
-
-.calcOrcamento_wrapper fieldset {
-    display: initial;
-    width: 100%;
 }
 
 input,
@@ -173,6 +170,13 @@ button {
 .btnSecundario:hover {
     background-color: #fdf1d4;
 }
+
+.conteudoCentralizado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 600px) {
     main {
         padding: 20px 15px;

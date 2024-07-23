@@ -5,24 +5,34 @@ h4 {
 }
 
 .modalBackgroundBlur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    backdrop-filter: blur(4px);
-}
-
-.modalWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    backdrop-filter: blur(8px);
     height: 100%;
+    width: 100%;
 }
 
 .modal {
     background-color: white;
     box-shadow: 0px 3px 10px #e8bac4;
-    padding: 25px;
+    padding: 20px;
     border-radius: 20px;
+}
+
+.modal span {
+    display: flex;
+    gap: 16px;
+}
+@media (min-width: 400px) {
+    .modalWrapper {
+        height: 100vmin;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal span {
+        gap: 0px;
+        flex-direction: column;
+    }
 }

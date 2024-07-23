@@ -32,7 +32,7 @@ const ValoresAdicionais = ({ setValorAdicional, valorAdicional }) => {
     };
     
     return (
-        <div style={{marginTop: "12px", display: 'flex', gap: "8px", flexWrap: "wrap"}}>
+        <div style={{marginTop: "4px", display: 'flex', gap: "8px", flexWrap: "wrap"}}>
             {campos.map(({ id, label, preco }) => (
                 <Checkbox
                     key={id}
